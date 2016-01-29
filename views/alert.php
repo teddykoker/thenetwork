@@ -1,0 +1,1 @@
+<div class="alert alert-<?= $type ?>" role="alert"><?= htmlspecialchars($message) ?></div>
