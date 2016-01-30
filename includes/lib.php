@@ -75,14 +75,7 @@ class Lib
 				// ensure number of placeholders matches number of values
 				// http://stackoverflow.com/a/22273749
 				// https://eval.in/116177
-		$pattern = "
-								/(?:
-								'[^'\\\\]*(?:(?:\\\\.|'')[^'\\\\]*)*'
-								| \"[^\"\\\\]*(?:(?:\\\\.|\"\")[^\"\\\\]*)*\"
-								| `[^`\\\\]*(?:(?:\\\\.|``)[^`\\\\]*)*`
-								)(*SKIP)(*F)| \?
-								/x
-						";
+		$pattern = "/(?:'[^'\\\\]*(?:(?:\\\\.|'')[^'\\\\]*)*'| \"[^\"\\\\]*(?:(?:\\\\.|\"\")[^\"\\\\]*)*\"| `[^`\\\\]*(?:(?:\\\\.|``)[^`\\\\]*)*`)(*SKIP)(*F)| \?/x";
 
 		preg_match_all($pattern, $sql, $matches);
 		if (count($matches[0]) < count($parameters))
