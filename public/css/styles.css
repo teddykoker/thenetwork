@@ -1,22 +1,17 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  padding-top: 50px;
+	padding-top: 50px;
 }
 
 #main {
 	padding: 40px 15px;
-  	/*text-align: center; */
+		/*text-align: center; */
 }
 
 #main .form-control
 {
-    /* center form controls */
-    display: inline-block;
-    /* override Bootstrap's 100% width for form controls */
-    width: auto;
+		/* center form controls */
+		display: inline-block;
+		/* override Bootstrap's 100% width for form controls */
+		width: auto;
 }
-
-.score.upvoted, .score.downvoted {display:none;}
-.upvoted .score, .downvoted .score {display: none;}
-.upvoted .score.upvoted {display: inline;}
-.downvoted .score.downvoted {display: inline;}

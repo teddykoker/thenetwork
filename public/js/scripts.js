@@ -1,3 +1,17 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function vote(postID)
 {
 	$.ajax({
