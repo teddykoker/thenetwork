@@ -23,11 +23,11 @@
 								print("<div>");
 										if(!$post["liked"])
 										{
-												print("<a href='like.php?id=".$post["id"]."'>Like <span class='glyphicon glyphicon-thumbs-up'></span></a>");
+												print("<a href='#' onclick='like(".$post["id"].")'>Like <span class='glyphicon glyphicon-thumbs-up'></span></a>");
 										}
 										else
 										{
-												print("<a href='like.php?id=".$post["id"]."'>Unlike</a>");
+												print("<a href='#' onclick='like(".$post["id"].")'>Unlike</a>");
 										}
 								print("</div>");
 						print("</li>");

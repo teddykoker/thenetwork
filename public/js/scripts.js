@@ -1,17 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 function vote(postID)
 {
 	$.ajax({
@@ -27,6 +14,11 @@ function vote(postID)
 function like(postID)
 {
 	$.ajax({
-		url: ""
+		url: "like.php",
+		data: "id=" + postID,
+		type: "GET",
+		success:function(){
+
+		}
 	});
 }
