@@ -1,3 +1,6 @@
+CREATE DATABASE thenetwork;
+USE thenetwork;
+
 
 CREATE TABLE `posts` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
