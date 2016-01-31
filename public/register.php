@@ -45,9 +45,10 @@
 								 // remember that user's now logged in by storing user's ID in session
 								$_SESSION["id"] = $rows[0]["id"];
 
+								//Change this later when there is an actual domain instead of using $_SERVER["SERVER_ADDR"]
 								$message = '<html><head><title>Email Verification</title></head><body>';
-								$message .= '<p>Welcome to The Network<a href="http://localhost/activate.php?id=' . base64_encode($_SESSION["id"]) . '">Click here to activate your account</a>.</p>';
-								$message .= "</body></html>";
+								$message .= '<p>Welcome to The Network. <a href="http://'."localhost".'/activate.php?id=' . base64_encode($_SESSION["id"]) . '">Click here to activate your account</a>.</p>';
+		$message .= "</body></html>";
 
 
 								$sent = lib::sendEmail($_POST["email"],"The Network Verification",$message);

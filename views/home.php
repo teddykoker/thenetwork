@@ -16,18 +16,18 @@
 				{
 						print("<li class='list-group-item' id='post-".$post["id"]."'>");
 								print("<span class='badge'>");
-										print("<span class='votes'>".$post["votes"]."</span>");
+										print("<span class='likes' id='likes-".$post["id"]."'>".$post["likes"]."</span>");
 								print("</span>");
 								print("<div><a href='user.php?id=".$post["user"]["id"]."'><strong>".$post["user"]["username"]."</strong></a> <small>". date_format(date_create($post["date"]),"n/j/y, g:ia")."</small></div>");
 								print("<div>".$post["text"]."</div>");
 								print("<div>");
 										if(!$post["liked"])
 										{
-												print("<a href='#' onclick='like(".$post["id"].")'>Like <span class='glyphicon glyphicon-thumbs-up'></span></a>");
+												print("<a class='like-button' id='like-button-".$post["id"]."'href='/like.php?id=".$post["id"]."'>Like <span class='glyphicon glyphicon-thumbs-up'></span></a>");
 										}
 										else
 										{
-												print("<a href='#' onclick='like(".$post["id"].")'>Unlike</a>");
+												print("<a class='unlike-button' id='unlike-button-".$post["id"]."'href='/like.php?id=".$post["id"]."'>Unlike</a>");
 										}
 								print("</div>");
 						print("</li>");

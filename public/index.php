@@ -11,7 +11,7 @@
 				$user = $users[0]; //first and only user
 
 				$votes = Lib::query("SELECT * FROM votes WHERE post_id = ?", $row["id"]);
-				$numberVotes = count($votes);
+				$numberLikes = count($votes);
 
 				$userVotes = Lib::query("SELECT * FROM votes WHERE post_id = ? AND user_id = ?", $row["id"], $_SESSION["id"]);
 				$liked = false;
@@ -25,7 +25,7 @@
 						"user" => $user,
 						"date" => $row["date"],
 						"text" => $row["text"],
-						"votes" => $numberVotes,
+						"likes" => $numberLikes,
 						"liked" => $liked
 				];
 
