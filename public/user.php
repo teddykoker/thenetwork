@@ -1,38 +1,49 @@
 <?php
-		/**
-		* This file is just a test! TODO: merger with user.php with home.php and index.php as
-		* to not copy the same code.
-		*/
+	/**
+	* This file is just a test! TODO: merger with user.php with home.php and index.php as
+	* to not copy the same code.
+	*/
 
-		// configuration
-		require("../includes/config.php");
+	// configuration
+	require("../includes/config.php");
 
-		if(isset($_GET["id"]) && !empty($_GET["id"]))
-		{
-				$rows = Lib::query("SELECT * FROM posts WHERE user_id = ?", $_GET["id"]);
-				$posts = [];
+	$users = [];
 
-				$users = Lib::query("SELECT * FROM users WHERE id = ?", $_GET["id"]);
-				$user = $users[0]; //first and only user
+	// look for user via id
+	if(isset($_GET["id"]) && !empty($_GET["id"]))
+	{
+		$users = Lib::query("SELECT * FROM users WHERE id = ?", $_GET["id"]);
+	}
+	// look for user via name
+	else if(isset($_GET["name"]) && !empty($_GET["name"]))
+	{
+		$users = Lib::query("SELECT * FROM users WHERE username = ?", $_GET["name"]);
+	}
 
-				foreach ($rows as $row) {
+	if(count($users) == 0){
+			alert("User not found", "danger");
+	}
+	else
+	{
+		$user = $users[0]; //first and only user
 
-						$votes = Lib::query("SELECT * FROM votes WHERE post_id = ?", $row["id"]);
-						$numberVotes = count($votes);
+		$rows = Lib::query("SELECT * FROM posts WHERE user_id = ?", $user["id"]);
+		$posts = [];
 
-						$posts[] = [
-								"name" => $user["username"],
-								"date" => $row["date"],
-								"text" => $row["text"],
-								"votes" => $numberVotes
-						];
+		foreach ($rows as $row) {
 
-				}
-				render("user.php", ["title" => $user["username"], "username"=> $user["username"], "posts" => $posts]);
+			$votes = Lib::query("SELECT * FROM votes WHERE post_id = ?", $row["id"]);
+			$numberVotes = count($votes);
+
+			$posts[] = [
+				"name" => $user["username"],
+				"date" => $row["date"],
+				"text" => $row["text"],
+				"votes" => $numberVotes
+			];
+
 		}
-		else
-		{
-				redirect("/");
-		}
+		render("user.php", ["title" => $user["username"], "username"=> $user["username"], "posts" => $posts]);
+	}
 
 ?>
