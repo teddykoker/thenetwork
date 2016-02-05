@@ -1,43 +1,43 @@
 <?php
 
-	$config = array(
-		"database" => array(
-			"host" => "localhost",
-			"name" => "database_name",
-			"username" => "mysql_username",
-			"password" => "mysql_password"
-		),
-		"email" => array(
-			"username" => "email_username",
-			"password" => "email_password",
-			"host" => "smtp.gmail.com",
-			"port" => 465
-		)
-	);
+  $config = array(
+    "database" => array(
+      "host" => "localhost",
+      "name" => "database_name",
+      "username" => "mysql_username",
+      "password" => "mysql_password"
+    ),
+    "email" => array(
+      "username" => "email_username",
+      "password" => "email_password",
+      "host" => "smtp.gmail.com",
+      "port" => 465
+    )
+  );
 
-	ini_set("display_errors", true);
-	error_reporting(E_ALL);
+  ini_set("display_errors", true);
+  error_reporting(E_ALL);
 
-	//set default timezone
-	date_default_timezone_set("UTC");
+  //set default timezone
+  date_default_timezone_set("UTC");
 
-	// requirements
-		require("helpers.php");
+  // requirements
+    require("helpers.php");
 
-		//Library
-	require("lib.php");
-	Lib::init($config);
+    //Library
+  require("lib.php");
+  Lib::init($config);
 
-	// enable sessions
-		session_start();
+  // enable sessions
+    session_start();
 
-		// require authentication for all pages except /login.php, /logout.php, /register.php and /activate.php
-		if (!in_array($_SERVER["PHP_SELF"], ["/login.php", "/logout.php", "/register.php", "/activate.php"]))
-		{
-				if (empty($_SESSION["id"]))
-				{
-						redirect("login.php");
-				}
-		}
+    // require authentication for all pages except /login.php, /logout.php, /register.php and /activate.php
+    if (!in_array($_SERVER["PHP_SELF"], ["/login.php", "/logout.php", "/register.php", "/activate.php"]))
+    {
+        if (empty($_SESSION["id"]))
+        {
+            redirect("login.php");
+        }
+    }
 
 ?>
