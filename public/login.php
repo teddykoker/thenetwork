@@ -31,9 +31,12 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
   {
     // first (and only) row
     $row = $rows[0];
-
+    if ($row["active"] == 0)
+    {
+      alert("Please verify your email first.", "warning");
+    }
     // compare hash of user's input against hash that's in database
-    if (password_verify($_POST["password"], $row["hash"]))
+    elseif (password_verify($_POST["password"], $row["hash"]))
     {
       // remember that user's now logged in by storing user's ID in session
       $_SESSION["id"] = $row["id"];
