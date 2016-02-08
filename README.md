@@ -32,10 +32,9 @@ This should put you in a root shell of your container. Then run:
 ```bash
 service apache2 start && service mysql start
 ```
-Initialize the database by connecting to the MySQL server:
+Initialize the MySQL database:
 ```bash
-mysql -u user -p #the default password is 'password'
+mysql -u user --password=password < /var/www/site/init.sql #the default password is 'password'
 ```
-Then run `source /var/www/site/init.sql`
 
 You should now be able to visit the site at [localhost](http://localhost).
