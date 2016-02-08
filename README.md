@@ -1,5 +1,5 @@
-#The Network(Untitled)
-This is my final project for my senior year in High School.
+#The Network
+This is my final project for my senior year in High School. I still need to think of a name...
 ##Author
 [Tom Koker](http://tomkoker.com)
 ##Run Locally using Docker
@@ -37,3 +37,5 @@ Initialize the database by connecting to the MySQL server:
 mysql -u user -p #the default password is 'password'
 ```
 Then run `source /var/www/site/init.sql`
+
+You should now be able to visit the site at [localhost](http://localhost).
