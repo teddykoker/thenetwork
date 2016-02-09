@@ -11,7 +11,7 @@
   </fieldset>
 </form>
 <ul class="list-group">
-  <?php foreach ($posts as $post){ ?>
+  <?php foreach ($posts as $post):?>
     <li class='list-group-item' id='post-<?=$post["id"]?>'>
       <span class='badge'>
         <span class='likes' id='likes-".$post["id"]."'><?=$post["likes"]?></span>
@@ -23,17 +23,12 @@
         <?=$post["text"]?>
       </div>
       <div>
-      <?php
-        if(!$post["liked"])
-        {
-          print("<a class='like-button' id='like-button-".$post["id"]."'href='/like.php?id=".$post["id"]."'>Like <span class='glyphicon glyphicon-thumbs-up'></span></a>");
-        }
-        else
-        {
-          print("<a class='unlike-button' id='unlike-button-".$post["id"]."'href='/like.php?id=".$post["id"]."'>Unlike</a>");
-        }
-      ?>
+      <?php if(!$post["liked"]): ?>
+          <a class='like-button' id='like-button-<?=$post["id"]?>'href='/like.php?id=<?=$post["id"]?>'>Like <span class='glyphicon glyphicon-thumbs-up'></span></a>
+      <?php else: ?>
+          <a class='unlike-button' id='unlike-button-<?=$post["id"]?>'href='/like.php?id=<?=$post["id"]?>'>Unlike</a>
+      <?php endif; ?>
       </div>
     </li>
-  <?php }?>
+  <?php endforeach ?>
 </ul>
