@@ -14,14 +14,9 @@ Make a config file:
  - Change `mysql_username` to `user` and `mysql_password` to `password`
  - Add email credentials
 
-Download my LAMP Docker Image:
+Pull my LAMP Docker Image:
 ```bash
-wget https://www.dropbox.com/s/xupzh19fkszymfp/lamp.tar
-```
-
-Load the image into Docker:
-```bash
-docker load -i lamp.tar
+docker pull tomkoker/lamp
 ```
 
 Run the image:
