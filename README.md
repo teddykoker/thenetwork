@@ -21,7 +21,7 @@ docker pull tomkoker/lamp
 
 Run the image:
 ```bash
-docker run -p 80:80 -it -v /path/to/thenetwork:/var/www/site lamp /bin/bash
+docker run -p 80:80 -it -v /path/to/thenetwork:/var/www/site tomkoker/lamp /bin/bash
 ```
 This should put you in a root shell of your container. Then run:
 ```bash
