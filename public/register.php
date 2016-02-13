@@ -42,13 +42,12 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
       $rows = Lib::query("SELECT LAST_INSERT_ID() AS id");
 
-      // remember that user's now logged in by storing user's ID in session
-      $_SESSION["id"] = $rows[0]["id"];
+      $id = $rows[0]["id"];
 
       //Change this later when there is an actual domain instead of using $_SERVER["SERVER_ADDR"]
       $message = '<html><head><title>Email Verification</title></head><body>';
-      $message .= '<p>Welcome to The Network. <a href="http://'."localhost".'/activate.php?id=' . base64_encode($_SESSION["id"]) . '">Click here to activate your account</a>.</p>';
-      $message .= '<p><i>Note. Unil the website gets a static domain and IP address, you will have to type the IP in manually. Ask Tom for details.</i></p>'
+      $message .= '<p>Welcome to The Network. <a href="http://'."localhost".'/activate.php?id=' . base64_encode($id) . '">Click here to activate your account</a>.</p>';
+      $message .= '<p><i>Note. Unil the website gets a static domain and IP address, you will have to type the IP in manually. Ask owner for details.</i></p>';
       $message .= "</body></html>";
 
 

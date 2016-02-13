@@ -43,6 +43,7 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <?php if (!empty($_SESSION["id"])): ?>
+            <li><a href="message.php">Messages</a></li>
             <li><a href="logout.php">Log Out</a></li>
           <?php endif ?>
         </ul>

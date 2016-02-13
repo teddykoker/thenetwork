@@ -27,3 +27,11 @@ CREATE TABLE `votes` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`,`post_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `messages` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `to_id` int(10) unsigned NOT NULL,
+  `from_id` int(10) unsigned NOT NULL,
+  `message` text NOT NULL,
+  PRIMARY KEY (`id`)
+);

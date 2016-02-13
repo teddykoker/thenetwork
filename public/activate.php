@@ -25,7 +25,7 @@ if(isset($_GET["id"]))
     {
       Lib::query("UPDATE users SET active = 1 WHERE id = ?", $id);
 
-      alert("Congratulations, your account is complete", "success");
+      alert("Congratulations, your account is complete. You can now login", "success");
     }
   }
 }

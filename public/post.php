@@ -1,6 +1,6 @@
 <?php
 
-    // configuration
+// configuration
 require("../includes/config.php");
 
 if(isset($_POST["text"]) && !empty($_POST["text"]))
