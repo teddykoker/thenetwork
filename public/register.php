@@ -31,12 +31,26 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
   }
     else //valid input
   {
+    $rows = Lib::query("SELECT * FROM users WHERE username = ?", $_POST["username"]);
+    if (count($rows) != 0)
+    {
+      alert("Username already exits.", "danger");
+      //TODO: check if this should be here: break;
+    }
+
+    $rows = Lib::query("SELECT * FROM users WHERE email = ?", $_POST{"email"]);
+    if (count($rows) != 0)
+    {
+      alert("An account already exists with this email.", "danger");
+      //TODO: break;
+    }
+
     $result = Lib::query("INSERT IGNORE INTO users (username, hash, email) VALUES(?, ?, ?)",
     $_POST["username"], password_hash($_POST["password"], PASSWORD_DEFAULT), $_POST["email"]);
 
     if ($result == 0) //INSERT fails
     {
-      alert("Username already exists.", "danger");
+      alert("Something went wrong. Please try again later.", "danger");
     }
     else
     {
@@ -47,7 +61,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
       //Change this later when there is an actual domain instead of using $_SERVER["SERVER_ADDR"]
       $message = '<html><head><title>Email Verification</title></head><body>';
       $message .= '<p>Welcome to The Network. <a href="http://'."localhost".'/activate.php?id=' . base64_encode($id) . '">Click here to activate your account</a>.</p>';
-      $message .= '<p><i>Note. Unil the website gets a static domain and IP address, you will have to type the IP in manually. Ask owner for details.</i></p>';
+      $message .= '<p><i>Note. Until the website gets a static domain and IP address, you will have to type the IP in manually. Ask owner for details.</i></p>';
       $message .= "</body></html>";
 
 
