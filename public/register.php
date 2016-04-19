@@ -35,14 +35,14 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
     if (count($rows) != 0)
     {
       alert("Username already exits.", "danger");
-      //TODO: check if this should be here: break;
+      exit;
     }
 
-    $rows = Lib::query("SELECT * FROM users WHERE email = ?", $_POST{"email"]);
+    $rows = Lib::query("SELECT * FROM users WHERE email = ?", $_POST["email"]);
     if (count($rows) != 0)
     {
       alert("An account already exists with this email.", "danger");
-      //TODO: break;
+      exit;
     }
 
     $result = Lib::query("INSERT IGNORE INTO users (username, hash, email) VALUES(?, ?, ?)",
