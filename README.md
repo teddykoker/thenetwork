@@ -1,5 +1,7 @@
 #The Network
 This is my final project for my senior year in High School. I still need to think of a name...
+#Why I'm Starting Over
+When I initially started working on this, I didn't really know what I wanted it to be capable of doing. After pondering for quite some time, I realized I wanted the website to be more realtime-chat based, which would work much better with [Node.js](http://nodejs.org/en/) and [Socket.io](http://socket.io/).
 ##Author
 [Tom Koker](http://tomkoker.com)
 ##Run Locally using Docker
