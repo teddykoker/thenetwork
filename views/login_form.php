@@ -1,4 +1,4 @@
-<form action="login.php" method="post">
+<form class="login-form" action="login.php" method="post">
   <fieldset>
     <div class="form-group">
       <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text"/>
@@ -13,7 +13,7 @@
       </button>
     </div>
   </fieldset>
+  <div>
+    or <a href="register.php">register</a> for an account
+  </div>
 </form>
-<div>
-  or <a href="register.php">register</a> for an account
-</div>

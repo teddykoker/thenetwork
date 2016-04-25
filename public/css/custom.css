@@ -1,0 +1,33 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+
+  /* change global font */
+  font-family: "Roboto", "Helvetica Neue", Helvetica, sans-serif;
+}
+nav {
+  font-weight: 300;
+}
+
+#main {
+  padding: 40px 15px;
+  /*text-align: center; */
+}
+
+#main .form-control
+{
+  /* center form controls */
+  display: inline-block;
+  /* override Bootstrap's 100% width for form controls */
+}
+
+.list-group-item {
+  /* prevent long words from going off page */
+  word-wrap: break-word;
+}
+
+.login-form {
+  max-width: 300px;
+  /* center form */
+  /*margin: 0 auto;*/
+}
