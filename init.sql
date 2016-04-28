@@ -6,6 +6,7 @@ CREATE TABLE `posts` (
   `user_id` int(10) unsigned NOT NULL,
   `text` text NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `topic` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -35,3 +36,14 @@ CREATE TABLE `messages` (
   `message` text NOT NULL,
   PRIMARY KEY (`id`)
 );
+
+CREATE TABLE `topics` {
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `shortname` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `num_posts` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  UNIQUE KEY `shortname` (`shortname`)
+}

@@ -1,7 +1,7 @@
 <?php
   /**
-  * This file is just a test! TODO: merger with user.php with home
-  * .php and index.php as
+  * This file is just a test! TODO: merger with user.php with
+  * home.php and index.php as
   * to not copy the same code.
   */
 

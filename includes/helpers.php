@@ -71,4 +71,19 @@ function render($view, $values = [])
   }
 }
 
+/**
+ * Converts string into something that is
+ * more url-friendly
+ */
+function shortname($string)
+{
+  $string = strtolower($string);
+  $string = preg_replace("/[^a-z0-9_\s-]/", "", $string);
+  $string = preg_replace("/[\s-]+/", " ", $string);
+  //$string = preg_replace("/[\s_]/", "-", $string);
+  // No dashes for now
+  string = preg_replace("/[\s_]/", "", $string);
+  return $string;
+}
+
 ?>
