@@ -23,7 +23,7 @@
     $posts[] = [
       "id" => $row["id"],
       "user" => $user,
-      "date" => $row["date"],
+      "date" =>  timeAgo(strtotime($row["date"])),
       "text" => $row["text"],
       "likes" => $numberLikes,
       "liked" => $liked

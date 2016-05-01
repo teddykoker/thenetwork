@@ -17,7 +17,7 @@
         <span class='likes' id='likes-<?=$post["id"]?>'><?=$post["likes"]?></span>
       </span>
       <div>
-        <a href='user.php?id=<?=$post["user"]["id"]?>'><strong><?=$post["user"]["username"]?></strong></a> <small><?=date_format(date_create($post["date"]),"n/j/y, g:ia")?></small>
+        <a href='user.php?id=<?=$post["user"]["id"]?>'><strong><?=$post["user"]["username"]?></strong></a> <small><?=$post["date"]?></small>
       </div>
       <div>
         <?=$post["text"]?>

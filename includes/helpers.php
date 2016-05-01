@@ -86,4 +86,36 @@ function shortname($string)
   return $string;
 }
 
+/**
+ * Converts timestamp into something easier to read
+ */
+function timeAgo($time)
+{
+  $elapsed = time() - $time;
+
+  if ($elapsed < 60)
+  {
+    return "Just now";
+  }
+
+  $conversions = array(
+    360 * 24 * 60 * 60 => 'year',
+    30 * 24 * 60 * 60 => 'month',
+    7 * 24 * 60 * 60 => 'week',
+    24 * 60 * 60 => 'day',
+    60 * 60 => 'hour',
+    60 => 'minute'
+  );
+
+  foreach($conversions as $seconds => $string)
+  {
+    if($time >= $seconds)
+    {
+      $num = round($time/$seconds);
+      return $num . ' ' . $string . ( $num > 1 ? 's' : '' ) . ' ago';
+    }
+  }
+}
+
+
 ?>
