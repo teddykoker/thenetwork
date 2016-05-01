@@ -92,7 +92,7 @@ function shortname($string)
 function timeAgo($time)
 {
   $elapsed = time() - $time;
-
+  //return $elapsed;
   if ($elapsed < 60)
   {
     return "Just now";
@@ -109,9 +109,9 @@ function timeAgo($time)
 
   foreach($conversions as $seconds => $string)
   {
-    if($time >= $seconds)
+    if($elapsed >= $seconds)
     {
-      $num = round($time/$seconds);
+      $num = round($elapsed/$seconds);
       return $num . ' ' . $string . ( $num > 1 ? 's' : '' ) . ' ago';
     }
   }
