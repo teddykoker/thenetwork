@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS thenetwork;
 CREATE DATABASE thenetwork;
 USE thenetwork;
 
@@ -37,7 +38,7 @@ CREATE TABLE `messages` (
   PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `topics` {
+CREATE TABLE `topics` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `shortname` varchar(255) NOT NULL,
@@ -46,4 +47,4 @@ CREATE TABLE `topics` {
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `shortname` (`shortname`)
-}
+);
