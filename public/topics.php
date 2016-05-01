@@ -5,11 +5,12 @@ require("../includes/config.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "GET")
 {
-  render("topics.php", ["title"] => "Topics");
+  $rows = Lib::query("SELECT * FROM topics")
+  render("topics.php", ["title" => "Topics"]);
 }
 else if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["name"]) && !empty($_POST["name"]))
 {
-  $shortname = shortname($_POST["name"])
+  $shortname = shortname($_POST["name"]);
   $rows = Lib::query("SELECT * FROM topics WHERE (name = ? OR shortname = ?)", $_POST["name"], $shortname);
   if (count($rows) != 0)
   {
@@ -24,8 +25,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["name"]) && !empty
   }
 
   // TODO: redirect to "/index.php?topic=" + $shortname
-  redirect("/")
-
+  redirect("/");
 
 }
 ?>

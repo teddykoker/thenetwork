@@ -9,6 +9,21 @@ nav {
   font-weight: 300;
 }
 
+.list-group-item {
+  /* prevent long words from going off page */
+  word-wrap: break-word;
+}
+
+a, a:hover {
+  color: steelblue;
+}
+
+.login-form {
+  max-width: 300px;
+  /* center form */
+  /*margin: 0 auto;*/
+}
+
 #main {
   padding: 40px 15px;
   /*text-align: center; */
@@ -19,15 +34,4 @@ nav {
   /* center form controls */
   display: inline-block;
   /* override Bootstrap's 100% width for form controls */
-}
-
-.list-group-item {
-  /* prevent long words from going off page */
-  word-wrap: break-word;
-}
-
-.login-form {
-  max-width: 300px;
-  /* center form */
-  /*margin: 0 auto;*/
 }

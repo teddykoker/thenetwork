@@ -82,7 +82,7 @@ function shortname($string)
   $string = preg_replace("/[\s-]+/", " ", $string);
   //$string = preg_replace("/[\s_]/", "-", $string);
   // No dashes for now
-  string = preg_replace("/[\s_]/", "", $string);
+  $string = preg_replace("/[\s_]/", "", $string);
   return $string;
 }
 
