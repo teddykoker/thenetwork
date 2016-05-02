@@ -17,6 +17,9 @@
  - Can click to follow/unfollow topics
  - pagers at bottom
 
+####Specific Topic
+ - shows posts like home
+
 ####User
  - see page of specific user
  - see what they follow and what they have posted
