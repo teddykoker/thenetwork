@@ -26,10 +26,12 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
   if (empty($_POST["username"]))
   {
     alert("Please enter a username.", "danger");
+    exit;
   }
-  else if (empty($_POST["password"]))
+  if (empty($_POST["password"]))
   {
     alert("Please enter a password.", "danger");
+    exit;
   }
 
   // query database for user

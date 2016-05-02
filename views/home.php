@@ -27,8 +27,8 @@
           <a class='like-button' id='like-button-<?=$post["id"]?>'href='/like.php?id=<?=$post["id"]?>'>Like <span class='glyphicon glyphicon-thumbs-up'></span></a>
       <?php else: ?>
           <a class='unlike-button' id='unlike-button-<?=$post["id"]?>'href='/like.php?id=<?=$post["id"]?>'>Unlike</a>
-      <?php endif ?>
+      <?php endif; ?>
       </div>
     </li>
-  <?php endforeach ?>
+  <?php endforeach; ?>
 </ul>
