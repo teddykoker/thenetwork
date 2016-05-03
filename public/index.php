@@ -3,9 +3,15 @@
   // configuration
   require("../includes/config.php");
 
-  $rows = Lib::query("SELECT * FROM posts");
-  $posts = formPosts($rows);
+  if (empty($_GET["topic"]))
+  {
+    $rows = Lib::query("SELECT * FROM posts");
+    $posts = formPosts($rows);
+    render("home.php", ["title" => "Home", "posts" => $posts]);
+  }
+  else
+  {
 
-  render("home.php", ["title" => "Home", "posts" => $posts]);
+  }
 
 ?>
