@@ -117,5 +117,39 @@ function timeAgo($time)
   }
 }
 
+/**
+ * Creates an array of posts in a format to print on the page given a mysql
+ * reponse of posts.
+ */
+function formPosts($rows)
+{
+  $posts = [];
+
+  foreach ($rows as $row) {
+    $users = Lib::query("SELECT * FROM users WHERE id = ?", $row["user_id"]);
+    $user = $users[0]; //first and only user
+
+    $votes = Lib::query("SELECT * FROM votes WHERE post_id = ?", $row["id"]);
+    $numberLikes = count($votes);
+
+    $userVotes = Lib::query("SELECT * FROM votes WHERE post_id = ? AND user_id = ?", $row["id"], $_SESSION["id"]);
+    $liked = false;
+    if(count($userVotes) == 1){
+      $liked = true;
+    }
+
+
+    $posts[] = [
+      "id" => $row["id"],
+      "user" => $user,
+      "date" =>  timeAgo(strtotime($row["date"])),
+      "text" => $row["text"],
+      "likes" => $numberLikes,
+      "liked" => $liked
+    ];
+  }
+  return $posts;
+}
+
 
 ?>

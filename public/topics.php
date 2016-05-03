@@ -6,16 +6,8 @@ require("../includes/config.php");
 // if user reached page via GET (as by clicking a link or via redirect)
 if ($_SERVER["REQUEST_METHOD"] == "GET")
 {
-  // if no topic selected, list topics and create form
-  if (empty($_POST["topic"]))
-  {
-    $rows = Lib::query("SELECT * FROM topics");
-    render("topics.php", ["title" => "Topics", "topics" => $rows]);
-  }
-  else
-  {
-
-  }
+  $rows = Lib::query("SELECT * FROM topics");
+  render("topics.php", ["title" => "Topics", "topics" => $rows]);
 
 }
 
