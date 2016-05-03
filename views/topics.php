@@ -16,9 +16,9 @@
 </form>
 <ul class="list-group">
   <?php foreach ($topics as $topic):?>
-    <li class="list-group-item">
+    <a class="list-group-item">
       <h4 class="list-group-item-heading"><?=$topic["name"]?></h4>
       <p class="list-group-item-text"><?=$topic["description"]?></p>
-    </li>
+    </a>
   <?php endforeach; ?>
 </ul>

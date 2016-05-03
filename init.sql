@@ -48,3 +48,11 @@ CREATE TABLE `topics` (
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `shortname` (`shortname`)
 );
+
+CREATE TABLE `followers` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `topic_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`, `topic_id`)
+);

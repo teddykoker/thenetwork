@@ -5,7 +5,7 @@ body {
   /* change global font */
   font-family: "Roboto", "Helvetica Neue", Helvetica, sans-serif;
 }
-nav {
+nav, h1, h2, h3, h4 {
   font-weight: 300;
 }
 
