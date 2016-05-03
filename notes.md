@@ -17,7 +17,7 @@
  - Can click to follow/unfollow topics
  - pagers at bottom
 
-####Specific Topic (/index.php?shortname=topic -> /topic)
+####Specific Topic (/topics.php?shortname=topic -> /topic)
  - shows posts like home
 
 ####User (/users.php?username=name -> /users/name)

@@ -6,9 +6,26 @@ require("../includes/config.php");
 // if user reached page via GET (as by clicking a link or via redirect)
 if ($_SERVER["REQUEST_METHOD"] == "GET")
 {
-  $rows = Lib::query("SELECT * FROM topics");
-  render("topics.php", ["title" => "Topics", "topics" => $rows]);
-
+  // if specific topic is requested
+  if(isset($_GET["shortname"]) && !empty($_GET["shortname"]))
+  {
+    $topics = Lib::query("SELECT * FROM topics WHERE shortname = ?", $_GET["shortname"]);
+    if(count($topics) == 0)
+    {
+      alert("This topic does not exist", "warning");
+      exit;
+    }
+    $topic = $topics[0];
+    $rows = Lib::query("SELECT * FROM posts WHERE topic = ?", $topic["id"]);
+    $posts = formPosts($rows);
+    render("topic.php", ["title" => $topic["name"],"topic" => $topic, "posts" => $posts]);
+  }
+  // else render main topics page
+  else
+  {
+    $rows = Lib::query("SELECT * FROM topics");
+    render("topics.php", ["title" => "Topics", "topics" => $rows]);
+  }
 }
 
 // else if user reached page via POST (as by submitting a form via POST)
@@ -38,7 +55,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
     exit;
   }
 
-  // TODO: redirect to "/index.php?topic=" + $shortname
+  // TODO: redirect to "/topics.php?shortname=" + $shortname
   redirect("/");
 
 }

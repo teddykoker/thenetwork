@@ -16,7 +16,7 @@
 </form>
 <ul class="list-group">
   <?php foreach ($topics as $topic):?>
-    <a class="list-group-item">
+    <a href="/topics.php?shortname=<?=$topic["shortname"]?>"class="list-group-item">
       <h4 class="list-group-item-heading"><?=$topic["name"]?></h4>
       <p class="list-group-item-text"><?=$topic["description"]?></p>
     </a>
