@@ -1,48 +1,35 @@
-
-function unlike(postID)
-{
-	$.ajax({
-		url: "like.php",
-		data: "id=" + postID,
-		type: "GET",
-		success: function(){
-			var likes = parseInt($('#likes-' + postID).text());
-			$('#likes-' + postID).html(likes - 1);
-			$('#unlike-button-' + postID).replaceWith("<a class='like-button' id='like-button-" + postID +"'href='#'>Like <span class='glyphicon glyphicon-thumbs-up'></span></a>");
-		}
-	});
-}
-function like(postID)
-{
-	$.ajax({
-		url: "like.php",
-		data: "id=" + postID,
-		type: "GET",
-		success:function(){
-			var likes = parseInt($('#likes-' + postID).text());
-			$('#likes-' + postID).html(likes + 1);
-			$('#like-button-' + postID).replaceWith("<a class='unlike-button' id='unlike-button-" + postID + "'href='#'>Unlike</a>");
-		}
-	});
-}
-
-
-/*
-$(document).ready(function(){
-
-
-	$('.like-button').on('click', function(){
-		postID = $(this).attr('id').replace('like-button-', '');
-		like(postID);
-		return false;
-	});
-
-	$('.unlike-button').on('click', function(){
-		postID = $(this).attr('id').replace('unlike-button-', '');
-		unlike(postID);
-		return false;
-	});
-
-
+var topics = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+  queryTokenizer: Bloodhound.tokenizers.whitespace,
+  remote: {
+    url: '/search_topics.php?query=%QUERY',
+    wildcard: '%QUERY'
+  }
 });
-*/
+
+function searchTopics(query, cb)
+{
+  var parameters = {
+    query: query
+  };
+  $.getJSON("search_topics.php", parameters)
+  .done(function(data, textStatus, jqXHR) {
+    console.log(data);
+    return cb(data);
+  })
+  .fail(function(jqXHR, textStatus, errorThrown) {
+    console.log(errorThrown.toString());
+  });
+}
+
+$(function() {
+
+  $('#search-topics').typeahead({
+    autoselect: true,
+    highlight: true,
+    minLength: 1
+  },
+  {
+    source: searchTopics
+  });
+});

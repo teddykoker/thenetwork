@@ -11,7 +11,7 @@
 
   <!-- http://getbootstrap.com/ -->
   <link href="/css/bootstrap.min.css" rel="stylesheet"/>
-
+  <link href="/css/typeaheadjs.css" rel="stylesheet"/>
   <link href="/css/custom.css" rel="stylesheet"/>
 
   <?php if (isset($title)): ?>
@@ -19,14 +19,6 @@
   <?php else: ?>
     <title>The Network</title>
   <?php endif ?>
-
-  <!-- https://jquery.com/ -->
-  <script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
-
-  <!-- http://getbootstrap.com/ -->
-  <script src="/js/bootstrap.min.js" type="text/javascript"></script>
-
-  <script src="/js/scripts.js" type="text/javascript"></script>
 
 </head>
 
