@@ -7,7 +7,7 @@ CREATE TABLE `posts` (
   `user_id` int(10) unsigned NOT NULL,
   `text` text NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `topic` int(10) unsigned NOT NULL,
+  `topic_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 );
 
