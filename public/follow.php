@@ -3,7 +3,7 @@
 // configuration
 require("../includes/config.php");
 
-if(isset($_GET["id"]) && !empty($_GET["id"]))
+if(isset($_GET["id"]))
 {
   $rows = Lib::query("SELECT * FROM followers WHERE user_id = ? AND topic_id = ?", $_SESSION["id"], $_GET["id"]);
 

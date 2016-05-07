@@ -6,12 +6,12 @@
   $users = [];
 
   // look for user via id
-  if(isset($_GET["id"]) && !empty($_GET["id"]))
+  if(isset($_GET["id"]))
   {
     $users = Lib::query("SELECT * FROM users WHERE id = ?", $_GET["id"]);
   }
   // look for user via name
-  else if(isset($_GET["name"]) && !empty($_GET["name"]))
+  else if(isset($_GET["name"]))
   {
     $users = Lib::query("SELECT * FROM users WHERE username = ?", $_GET["name"]);
   }

@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET")
 // else if user reached page via POST (as by submitting a form via POST)
 else if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-  if (empty($_POST["name"]))
+  if(empty($_POST["name"]))
   {
     alert("Please name your new topic.", "danger");
     exit;

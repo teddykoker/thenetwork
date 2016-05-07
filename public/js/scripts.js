@@ -5,7 +5,7 @@ function unlike(postID)
   $.ajax({
     url: "like.php",
     data: "id=" + postID,
-    type: "GET",
+    type: "POST",
     success: function(){
       var likes = parseInt($('#likes-' + postID).text());
       $('#likes-' + postID).html(likes - 1);
@@ -18,7 +18,7 @@ function like(postID)
   $.ajax({
     url: "like.php",
     data: "id=" + postID,
-    type: "GET",
+    type: "POST",
     success:function(){
       var likes = parseInt($('#likes-' + postID).text());
       $('#likes-' + postID).html(likes + 1);
@@ -28,17 +28,18 @@ function like(postID)
 }
 
 
-/*
+
 $(document).ready(function(){
-  $('.like-button').on('click', function(){
+  $('.post').on('click', '.like-button', function(){
+    console.log(this);
     postID = $(this).attr('id').replace('like-button-', '');
     like(postID);
     return false;
   });
-  $('.unlike-button').on('click', function(){
+  $('.post').on('click', '.unlike-button', function(){
     postID = $(this).attr('id').replace('unlike-button-', '');
+    console.log(this);
     unlike(postID);
     return false;
   });
 });
-*/

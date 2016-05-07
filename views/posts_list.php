@@ -1,6 +1,6 @@
 <ul class="list-group">
   <?php foreach ($posts as $post):?>
-    <li class='list-group-item' id='post-<?=$post["id"]?>'>
+    <li class='post list-group-item' id='post-<?=$post["id"]?>'>
       <span class='badge'>
         <span class='likes' id='likes-<?=$post["id"]?>'><?=$post["likes"]?></span>
       </span>
@@ -12,9 +12,9 @@
       </div>
       <div>
       <?php if(!$post["liked"]): ?>
-          <a class='like-button' id='like-button-<?=$post["id"]?>'href='/like.php?id=<?=$post["id"]?>'>Like <span class='glyphicon glyphicon-thumbs-up'></span></a>
+          <a class='like-button' id='like-button-<?=$post["id"]?>'href='#'>Like <span class='glyphicon glyphicon-thumbs-up'></span></a>
       <?php else: ?>
-          <a class='unlike-button' id='unlike-button-<?=$post["id"]?>'href='/like.php?id=<?=$post["id"]?>'>Unlike</a>
+          <a class='unlike-button' id='unlike-button-<?=$post["id"]?>'href='#'>Unlike</a>
       <?php endif; ?>
       </div>
     </li>
