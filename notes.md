@@ -1,5 +1,13 @@
 #Notes
 
+##TODO:
+ - error check emails
+ - different encoding on authentication
+ - pagers at bottom of posts
+ - sortable posts
+ - sortable topics
+ - upload links
+ - upload pictures
 ##Pages
 
 ####Login (/login.php)
