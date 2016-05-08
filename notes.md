@@ -26,7 +26,7 @@
  - pagers at bottom
 
 ####Specific Topic (/topics.php?shortname=topic -> /topic)
- - shows posts like home
+ - shows posts like home lets users follow or post there
 
 ####User (/users.php?username=name -> /users/name)
  - see page of specific user

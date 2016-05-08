@@ -1,4 +1,4 @@
-<form action="post.php" method="get">
+<form action="post.php" method="post">
   <fieldset>
     <div class="form-group">
       <textarea autocomplete="off" autofocus class="form-control" name="text" placeholder="New Post" type="text"/></textarea>
