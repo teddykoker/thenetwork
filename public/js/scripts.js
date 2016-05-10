@@ -26,7 +26,14 @@ function like(postID)
     }
   });
 }
+function follow(topicID)
+{
 
+}
+function unfollow(topicID)
+{
+
+}
 
 
 $(document).ready(function(){

@@ -8,6 +8,7 @@
  - sortable topics
  - upload links
  - upload pictures
+
 ##Pages
 
 ####Login (/login.php)
@@ -38,3 +39,19 @@
 ####Settings (/settings.php)
  - change password
  - change privacy settings
+
+##Scraps
+
+```javascript
+$('#form').submit(function(event) {   
+    $.ajax({
+        url: 'login.php',
+        type: 'POST',
+        data: data,
+        success: function(result) {
+            $('warning').html(result);
+        }
+    });
+    event.preventDefault();
+});
+```
