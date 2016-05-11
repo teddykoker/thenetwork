@@ -5,7 +5,8 @@
         <span class='likes' id='likes-<?=$post["id"]?>'><?=$post["likes"]?></span>
       </span>
       <div>
-        <a href='user.php?id=<?=$post["user"]["id"]?>'><strong><?=$post["user"]["username"]?></strong></a> <small><?=$post["date"]?></small>
+        <a href='user.php?id=<?=$post["user"]["id"]?>'><strong><?=$post["user"]["username"]?></strong></a>
+        <small><?=$post["date"]?> in <a href="/topics.php?shortname=<?=$post["topic"]["shortname"]?>"><?=$post["topic"]["name"]?></a></small>
       </div>
       <div>
         <?=$post["text"]?>

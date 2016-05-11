@@ -138,6 +138,8 @@ function formPosts($rows)
       $liked = true;
     }
 
+    $topics = Lib::query("SELECT * FROM topics WHERE id = ?", $row["topic_id"]);
+    $topic = $topics[0];
 
     $posts[] = [
       "id" => $row["id"],
@@ -145,7 +147,8 @@ function formPosts($rows)
       "date" =>  timeAgo(strtotime($row["date"])),
       "text" => $row["text"],
       "likes" => $numberLikes,
-      "liked" => $liked
+      "liked" => $liked,
+      "topic" => $topic
     ];
   }
   return $posts;
