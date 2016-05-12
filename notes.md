@@ -1,6 +1,7 @@
 #Notes
 
 ##TODO:
+ - server and ssl
  - error check emails
  - different encoding on authentication
  - pagers at bottom of posts
