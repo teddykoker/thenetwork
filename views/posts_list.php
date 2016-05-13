@@ -31,7 +31,7 @@
     <?php if($last): ?>
       <li class="next disabled"><a href="#">Next</a></li>
     <?php else: ?>
-      <li class="next"><a href="<?=$_SERVER["PHP_SELF"]?>?page=<?=$page+1?>">Next</a></li>
+      <li class="next"><a href="?<?=pageQuery($page + 1)?>">Next</a></li>
     <?php endif; ?>
   </ul>
 </nav>

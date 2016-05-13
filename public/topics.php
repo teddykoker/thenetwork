@@ -16,16 +16,22 @@ if ($_SERVER["REQUEST_METHOD"] == "GET")
       exit;
     }
     $topic = $topics[0];
-    $rows = Lib::query("SELECT * FROM posts WHERE topic_id = ?", $topic["id"]);
+    $limit = 1;
 
     $userFollows = Lib::query("SELECT * FROM followers WHERE user_id = ? AND topic_id = ?", $_SESSION["id"], $topic["id"]);
     $followed = false;
     if(count($userFollows) == 1){
       $followed = true;
     }
+    $counts = Lib::query("SELECT COUNT(*) AS count FROM posts WHERE topic_id = ?", $topic["id"]);
+    $count = (int) $counts[0]["count"];
+
+    $info = pageInfo($limit, $count);
+
+    $rows = Lib::query("SELECT * FROM posts WHERE topic_id = ? ORDER BY id DESC LIMIT " . $info["start"] . ", " . $limit, $topic["id"]);
     $posts = formPosts($rows);
 
-    render("topic.php", ["title" => $topic["name"],"topic" => $topic, "followed" => $followed, "posts" => $posts]);
+    render("topic.php", ["title" => $topic["name"],"topic" => $topic, "followed" => $followed, "posts" => $posts, "page" => $info["page"], "last" => $info["last"]]);
   }
   // else render main topics page
   else

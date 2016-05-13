@@ -167,5 +167,10 @@ function pageInfo($limit, $count)
   ];
 }
 
+function pageQuery($page)
+{
+  $params = array_merge($_GET, array("page" => $page));
+  return http_build_query($params);
+}
 
 ?>
