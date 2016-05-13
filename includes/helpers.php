@@ -154,5 +154,18 @@ function formPosts($rows)
   return $posts;
 }
 
+function pageInfo($limit, $count)
+{
+  $page = isset($_GET["page"]) && (intval($_GET["page"]) > 1) ? $_GET["page"] : 1;
+  $pages = ceil( $count / $limit);
+  $start = ($page-1) * $limit;
+  $last = ($page >= $pages) ? true : false;
+  return [
+    "page" => $page,
+    "start" => $start,
+    "last" => $last
+  ];
+}
+
 
 ?>

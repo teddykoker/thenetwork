@@ -22,11 +22,16 @@
   else
   {
     $user = $users[0]; //first and only user
+    $limit = 1;
+    $counts = Lib::query("SELECT COUNT(*) AS count FROM posts WHERE user_id = ?", $user["id"]);
+    $count = (int) $counts[0]["count"];
 
-    $rows = Lib::query("SELECT * FROM posts WHERE user_id = ?", $user["id"]);
+    $info = pageInfo($limit, $count);
+
+    $rows = Lib::query("SELECT * FROM posts WHERE user_id = ? ORDER BY id DESC LIMIT " . $info["start"] . ", " . $limit, $user["id"]);
     $posts = formPosts($rows);
 
-    render("user.php", ["title" => $user["username"], "username"=> $user["username"], "posts" => $posts]);
+    render("user.php", ["title" => $user["username"], "username"=> $user["username"], "posts" => $posts, "page" => $info["page"], "last" => $info["last"]]);
   }
 
 ?>

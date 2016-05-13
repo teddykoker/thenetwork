@@ -10,11 +10,13 @@ if (isset($_POST["text"]) && !empty($_POST["topic"]))
   if ($result == 0) //INSERT fails
   {
     alert("Post failed", "danger");
+    exit;
   }
-  else
-  {
-    redirect("/");
-  }
+
+  $topics = Lib::query("SELECT * FROM topics WHERE id = ?", $_POST["topic"]);
+  $topic = $topics[0];
+  redirect("/topics.php?shortname=" . $topic["shortname"]);
+
 }
 else
 {

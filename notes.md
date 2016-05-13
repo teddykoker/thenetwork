@@ -2,6 +2,7 @@
 
 ##TODO:
  - server and ssl
+ - fix new lines in posts
  - error check emails
  - different encoding on authentication
  - pagers at bottom of posts

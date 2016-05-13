@@ -63,7 +63,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
   }
 
   // TODO: redirect to "/topics.php?shortname=" + $shortname
-  redirect("/");
+  redirect("/topics.php?shortname=" . $shortname);
 
 }
 ?>
