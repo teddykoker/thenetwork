@@ -3,7 +3,7 @@
   // configuration
   require("../includes/config.php");
 
-  $limit = 1;
+  $limit = 25;
 
   $counts = Lib::query("SELECT COUNT(*) AS count FROM posts");
   $count = (int) $counts[0]["count"];

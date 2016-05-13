@@ -22,7 +22,7 @@
   }
 
   $user = $users[0]; //first and only user
-  $limit = 1;
+  $limit = 15;
   $counts = Lib::query("SELECT COUNT(*) AS count FROM posts WHERE user_id = ?", $user["id"]);
   $count = (int) $counts[0]["count"];
 

@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET")
       exit;
     }
     $topic = $topics[0];
-    $limit = 1;
+    $limit = 15;
 
     $userFollows = Lib::query("SELECT * FROM followers WHERE user_id = ? AND topic_id = ?", $_SESSION["id"], $topic["id"]);
     $followed = false;

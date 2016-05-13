@@ -5,11 +5,11 @@
         <span class='likes' id='likes-<?=$post["id"]?>'><?=$post["likes"]?></span>
       </span>
       <div>
-        <a href='user.php?name=<?=$post["user"]["username"]?>'><strong><?=$post["user"]["username"]?></strong></a>
-        <small><?=$post["date"]?> in <a href="/topics.php?shortname=<?=$post["topic"]["shortname"]?>"><?=$post["topic"]["name"]?></a></small>
+        <a href='user.php?name=<?=$post["user"]["username"]?>'><strong><?=htmlspecialchars($post["user"]["username"])?></strong></a>
+        <small><?=$post["date"]?> in <a href="/topics.php?shortname=<?=$post["topic"]["shortname"]?>"><?=htmlspecialchars($post["topic"]["name"])?></a></small>
       </div>
       <div>
-        <?=$post["text"]?>
+        <?= htmlspecialchars($post["text"])?>
       </div>
       <div>
       <?php if(!$post["liked"]): ?>
