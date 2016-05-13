@@ -9,7 +9,7 @@
         <small><?=$post["date"]?> in <a href="/topics.php?shortname=<?=$post["topic"]["shortname"]?>"><?=htmlspecialchars($post["topic"]["name"])?></a></small>
       </div>
       <div>
-        <?= htmlspecialchars($post["text"])?>
+        <?= nl2br(htmlspecialchars($post["text"]))?>
       </div>
       <div>
       <?php if(!$post["liked"]): ?>
