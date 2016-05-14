@@ -44,9 +44,9 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
       alert("An account already exists with this email.", "danger");
       exit;
     }
-
-    $result = Lib::query("INSERT IGNORE INTO users (username, hash, email) VALUES(?, ?, ?)",
-    $_POST["username"], password_hash($_POST["password"], PASSWORD_DEFAULT), $_POST["email"]);
+    $token = md5(uniqid(rand(), true));
+    $result = Lib::query("INSERT IGNORE INTO users (username, hash, email, token) VALUES(?, ?, ?, ?)",
+    $_POST["username"], password_hash($_POST["password"], PASSWORD_DEFAULT), $_POST["email"], $token);
 
     if ($result == 0) //INSERT fails
     {

@@ -16,6 +16,7 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `hash` varchar(255) NOT NULL,
+  `token` varchar(255) NOT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
@@ -43,7 +44,7 @@ CREATE TABLE `topics` (
   `name` varchar(255) NOT NULL,
   `shortname` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `num_posts` int(10) unsigned NOT NULL DEFAULT '0',
+  `num_followers` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `shortname` (`shortname`)
