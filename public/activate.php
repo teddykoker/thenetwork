@@ -3,32 +3,21 @@
 // configuration
 require("../includes/config.php");
 
-if(isset($_GET["id"]))
+if(isset($_GET["token"]))
 {
-  $id = intval(base64_decode($_GET["id"]));
 
   // query database for user
-  $rows = Lib::query("SELECT * FROM users WHERE id = ?", $id);
+  $rows = Lib::query("SELECT * FROM users WHERE token = ?", $_GET["token"]);
 
   // if we found user, check password
-  if (count($rows) == 1)
+  if (count($rows) >= 1)
   {
-    // first (and only) row
-    $row = $rows[0];
 
-    //if user is already active
-    if ($row["active"] == 1)
-    {
-      alert("Email is already active", "info");
-    }
-    else
-    {
-      Lib::query("UPDATE users SET active = 1 WHERE id = ?", $id);
+    Lib::query("UPDATE users SET active = 1, token = NULL WHERE id = ?", $id);
 
-      alert("Congratulations, your account is complete. You can now login", "success");
-    }
+    alert("Congratulations, your account is complete. You can now login", "success");
   }
 }
-
+alert("Link is no longer valid.", "info");
 
 ?>

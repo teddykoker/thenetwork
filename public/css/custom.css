@@ -1,17 +1,19 @@
-/* Move down content because we have a fixed navbar that is 50px tall */
+
+* {
+  /* prevent long words from going off page */
+  word-wrap: break-word;
+}
+
 body {
+  /* Move down content because we have a fixed navbar that is 50px tall */
   padding-top: 50px;
 
   /* change global font */
   font-family: "Roboto", "Helvetica Neue", Helvetica, sans-serif;
 }
+
 .navbar, h1, h2, h3, h4 {
   font-weight: 300;
-}
-
-.list-group-item {
-  /* prevent long words from going off page */
-  word-wrap: break-word;
 }
 
 a, a:hover {

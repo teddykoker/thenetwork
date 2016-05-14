@@ -16,7 +16,7 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `hash` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
+  `token` varchar(255),
   `active` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),

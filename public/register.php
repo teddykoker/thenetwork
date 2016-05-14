@@ -54,14 +54,9 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
     }
     else
     {
-      $rows = Lib::query("SELECT LAST_INSERT_ID() AS id");
-
-      $id = $rows[0]["id"];
-
-      //Change this later when there is an actual domain instead of using $_SERVER["SERVER_ADDR"]
       $message = '<html><head><title>Email Verification</title></head><body>';
-      $message .= '<p>Welcome to The Network. <a href="http://'."localhost".'/activate.php?id=' . base64_encode($id) . '">Click here to activate your account</a>.</p>';
-      $message .= '<p><i>Note. Until the website gets a static domain and IP address, you will have to type the IP in manually. Ask owner for details.</i></p>';
+      $message .= '<p>Welcome to The Network. <a href="http://'."localhost".'/activate.php?token=' . $token . '">Click here to activate your account</a>.</p>';
+      $message .= '<p><i>If you do not know what this email is for just ignore it.</i></p>';
       $message .= "</body></html>";
 
 
