@@ -3,8 +3,8 @@
 ##TODO:
  - ~~server~~ and ssl
  - ~~fix new lines in posts~~
- - error check emails
- - different encoding on authentication
+ - ~~error check emails~~
+ - ~~different encoding on authentication~~
  - ~~pagers at bottom of posts~~
  - ~~provide posts based on followed topics~~
  - sort topics on followers
