@@ -126,36 +126,48 @@ class Lib
   public static function sendEmail($to, $subject, $message){
 
     $mail = new PHPMailer(true);
-    // use SMTP
-    $mail->IsSMTP();
-    $mail->SMTPAuth = true;
-    $mail->SMTPSecure = "ssl";
-
-    // get host, port, username, and password from config
-    $mail->Host = self::$config["email"]["host"];
-    $mail->Port = self::$config["email"]["port"];
-    $mail->Username = self::$config["email"]["username"];
-    $mail->Password = self::$config["email"]["password"];
-
-    $mail->Subject = $subject;
-
-    // use address as from address and name
-    $mail->SetFrom(self::$config["email"]["username"],self::$config["email"]["username"]);
-
-    // send to $to
-    $mail->AddAddress($to);
-
-    // add message
-    $mail->MsgHTML($message);
-
-    if(!$mail->send())
+    $sent = false;
+    try
     {
-        // message failed to send
-        return $mail->ErrorInfo;
+      // use SMTP
+      $mail->IsSMTP();
+      $mail->SMTPAuth = true;
+      $mail->SMTPSecure = "ssl";
+
+      // get host, port, username, and password from config
+      $mail->Host = self::$config["email"]["host"];
+      $mail->Port = self::$config["email"]["port"];
+      $mail->Username = self::$config["email"]["username"];
+      $mail->Password = self::$config["email"]["password"];
+
+      $mail->Subject = $subject;
+
+      // use address as from address and name
+      $mail->SetFrom(self::$config["email"]["username"],self::$config["email"]["username"]);
+
+      // send to $to
+      $mail->AddAddress($to);
+
+      // add message
+      $mail->MsgHTML($message);
+      $sent = $mail->send();
+    }
+    catch(phpmailerException $e)
+    {
+      return $e->errorMessage();
+    }
+    catch(Exception $e)
+    {
+      return $e->getMessage();
+    }
+    if(!$sent)
+    {
+      // message failed to send
+      return $mail->ErrorInfo;
     }
     else
     {
-        return true;
+      return true;
     }
   }
 }

@@ -1,1 +1,1 @@
-<div class="alert alert-<?= $type ?>" role="alert"><?= htmlspecialchars($message) ?></div>
+<div class="alert alert-<?= $type ?>" role="alert"><?= $message ?></div>

@@ -44,7 +44,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
     $row = $rows[0];
     if ($row["active"] == 0)
     {
-      alert("Please verify your email first.", "warning");
+      alert("Please verify your email first. Didn't get an email? <a class='alert-link' href='/resend.php?username=" . $row["username"] . "'> Resend it!</a", "warning");
     }
     // compare hash of user's input against hash that's in database
     elseif (password_verify($_POST["password"], $row["hash"]))

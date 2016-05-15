@@ -7,6 +7,7 @@
 
   $followed = Lib::query("SELECT * FROM followers WHERE user_id = ?", $_SESSION["id"]);
   $followed = array_column($followed, "topic_id");
+  $followed[] = -1; // So it is not empty
   $followed = implode(", " , $followed);
 
   $counts = Lib::query("SELECT COUNT(*) AS count FROM posts  WHERE topic_id IN (" . $followed . ")");

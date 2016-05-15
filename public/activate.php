@@ -13,7 +13,7 @@ if(isset($_GET["token"]))
   if (count($rows) >= 1)
   {
 
-    Lib::query("UPDATE users SET active = 1, token = NULL WHERE id = ?", $id);
+    Lib::query("UPDATE users SET active = 1, token = NULL WHERE token = ?", $_GET["token"]);
 
     alert("Congratulations, your account is complete. You can now login", "success");
   }
