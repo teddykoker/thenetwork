@@ -15,7 +15,7 @@ if(isset($_GET["username"]))
     $token = md5(uniqid(rand(), true));
 
     $message = '<html><head><title>Email Verification</title></head><body>';
-    $message .= '<p>Welcome to The Network. <a href="http://'. $_SERVER["SERVER_ADDR"] .'/activate.php?token=' . $token . '">Click here to activate your account</a>.</p>';
+    $message .= '<p>Welcome to The Network. <a href="http://'. $_SERVER["HTTP_HOST"] .'/activate.php?token=' . $token . '">Click here to activate your account</a>.</p>';
     $message .= '<p><i>If you do not know what this email is for just ignore it.</i></p>';
     $message .= "</body></html>";
 
