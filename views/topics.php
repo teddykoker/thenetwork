@@ -17,8 +17,23 @@
 <ul class="list-group">
   <?php foreach ($topics as $topic):?>
     <a href="/topics.php?shortname=<?=$topic["shortname"]?>"class="list-group-item">
-      <h4 class="list-group-item-heading"><?=$topic["name"]?></h4>
-      <p class="list-group-item-text"><?=$topic["description"]?></p>
+      <span class='badge'><?=$topic["num_followers"]?></span>
+      <h4 class="list-group-item-heading"><?=htmlspecialchars($topic["name"])?></h4>
+      <p class="list-group-item-text"><?=htmlspecialchars($topic["description"])?></p>
     </a>
   <?php endforeach; ?>
 </ul>
+<nav>
+  <ul class="pager">
+    <?php if($page == 1): ?>
+      <li class="previous disabled"><a href="#">Previous</a></li>
+    <?php else: ?>
+      <li class="previous"><a href="?page=<?=$page-1?>">Previous</a></li>
+    <?php endif; ?>
+    <?php if($last): ?>
+      <li class="next disabled"><a href="#">Next</a></li>
+    <?php else: ?>
+      <li class="next"><a href="?<?=pageQuery($page + 1)?>">Next</a></li>
+    <?php endif; ?>
+  </ul>
+</nav>

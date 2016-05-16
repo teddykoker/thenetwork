@@ -36,8 +36,12 @@ if ($_SERVER["REQUEST_METHOD"] == "GET")
   // else render main topics page
   else
   {
-    $rows = Lib::query("SELECT * FROM topics");
-    render("topics.php", ["title" => "Topics", "topics" => $rows]);
+    $limit = 15;
+    $counts = Lib::query("SELECT COUNT(*) AS count FROM topics");
+    $count = (int) $counts[0]["count"];
+    $info = pageInfo($limit, $count);
+    $topics = Lib::query("SELECT * FROM topics ORDER BY num_followers DESC LIMIT " . $info["start"] . ", " . $limit);
+    render("topics.php", ["title" => "Topics", "topics" => $topics, "page" => $info["page"], "last" => $info["last"]]);
   }
 }
 
