@@ -15,37 +15,37 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
   if($_POST["username"] == "")
   {
-    alert("Please enter a username.", "danger");
+    echo("Please enter a username.");
   }
   if(preg_match("/^[a-zA-Z0-9_]{1,20}$/", $_POST["username"]) == 0)
   {
-    alert("Usernames must have a max of 20 characters and only contain letters, numbers, and underscores.", "danger");
+    echo("Usernames must have a max of 20 characters and only contain letters, numbers, and underscores.");
   }
   else if($_POST["email"] == "")
   {
-    alert("Please enter an email.", "danger");
+    echo("Please enter an email.");
   }
   else if($_POST["password"] == "")
   {
-    alert("Please enter a password.", "danger");
+    echo("Please enter a password.";
   }
   else if($_POST["confirm"] != $_POST["password"])
   {
-    alert("Passwords do not match.", "danger");
+    echo("Passwords do not match.");
   }
   else //valid input
   {
     $rows = Lib::query("SELECT * FROM users WHERE username = ?", $_POST["username"]);
     if (count($rows) != 0)
     {
-      alert("Username already exits.", "danger");
+      echo("Username already exits.");
       exit;
     }
 
     $rows = Lib::query("SELECT * FROM users WHERE email = ?", $_POST["email"]);
     if (count($rows) != 0)
     {
-      alert("An account already exists with this email.", "danger");
+      echo("An account already exists with this email.");
       exit;
     }
     $token = md5(uniqid(rand(), true));
@@ -59,13 +59,13 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
     $sent = lib::sendEmail($_POST["email"],"The Network Verification",$message);
     if($sent === true)
     {
+      //registration complete
       Lib::query("INSERT IGNORE INTO users (username, hash, email, token) VALUES(?, ?, ?, ?)", $_POST["username"], password_hash($_POST["password"], PASSWORD_DEFAULT), $_POST["email"], $token);
-
-      alert("Account successfully created. Please check your email and click the link to activate", "success");
+      echo("OK");
     }
     else
     {
-      alert("Verification email could not be sent. Please double check your email and try again.", "warning");
+      echo("Verification email could not be sent. Please double check your email and try again.");
     }
   }
 }

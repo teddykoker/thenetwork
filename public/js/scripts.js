@@ -1,4 +1,19 @@
 
+function register(data)
+{
+  $.ajax({
+    url: "register.php",
+    type: "POST",
+    data: data,
+    success: function(response) {
+      if(response == "OK"){
+        $("#main").html("<div class='alert alert-success'>Account successfully created. Please check your email and click the link to activate</div>");
+      } else {
+        $("#error").html("<div class='alert alert-danger'>" + response + "</div>");
+      }
+    }
+  });
+}
 function login(data)
 {
   $.ajax({
@@ -65,7 +80,10 @@ function unfollow(topicID)
 
 
 $(document).ready(function(){
-
+  $('#register-form').submit(function(event){
+    register($(this).serialize());
+    event.preventDefault();
+  });
   $('#login-form').submit(function(event){
     login($(this).serialize());
     event.preventDefault();
