@@ -1,5 +1,6 @@
-<form class="login-form" action="login.php" method="post">
+<form id="login-form" method="post">
   <fieldset>
+    <div id = "error"></div>
     <div class="form-group">
       <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text"/>
     </div>

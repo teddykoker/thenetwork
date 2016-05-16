@@ -28,7 +28,7 @@ a, a:hover {
   font-weight: 300;
 }
 
-.login-form {
+#login-form, #register-form {
   max-width: 300px;
   /* center form */
   /*margin: 0 auto;*/

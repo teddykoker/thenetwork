@@ -25,12 +25,12 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
   // validate submission
   if (empty($_POST["username"]))
   {
-    alert("Please enter a username.", "danger");
+    echo("Please enter a username.");
     exit;
   }
   if (empty($_POST["password"]))
   {
-    alert("Please enter a password.", "danger");
+    echo("Please enter a password.");
     exit;
   }
 
@@ -44,7 +44,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
     $row = $rows[0];
     if ($row["active"] == 0)
     {
-      alert("Please verify your email first. Didn't get an email? <a class='alert-link' href='/resend.php?username=" . $row["username"] . "'> Resend it!</a", "warning");
+      echo("Please verify your email first. Didn't get an email? <a class='alert-link' href='/resend.php?username=" . $row["username"] . "'> Resend it!</a");
     }
     // compare hash of user's input against hash that's in database
     elseif (password_verify($_POST["password"], $row["hash"]))
@@ -53,18 +53,18 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
       $_SESSION["id"] = $row["id"];
 
       // redirect to home
-      redirect("/");
+      echo("OK");
     }
     //password wrong
     else
     {
-      alert("Incorrect username or password.", "danger");
+      echo("Incorrect username or password.");
     }
   }
   //no user exists under name
   else
   {
-   alert("Incorrect username or password.", "danger");
+   echo("Incorrect username or password.");
   }
 }
 

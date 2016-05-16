@@ -1,5 +1,19 @@
 
-
+function login(data)
+{
+  $.ajax({
+    url: "login.php",
+    type: "POST",
+    data: data,
+    success: function(response) {
+      if(response == "OK"){
+        window.location.replace("/");
+      } else {
+        $("#error").html("<div class='alert alert-danger'>" + response + "</div>");
+      }
+    }
+  });
+}
 function unlike(postID)
 {
   $.ajax({
@@ -51,6 +65,11 @@ function unfollow(topicID)
 
 
 $(document).ready(function(){
+
+  $('#login-form').submit(function(event){
+    login($(this).serialize());
+    event.preventDefault();
+  });
   $('.post').on('click', '.like-button', function(){
     postID = $(this).attr('id').replace('like-button-', '');
     like(postID);
