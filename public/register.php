@@ -17,7 +17,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
   {
     echo("Please enter a username.");
   }
-  if(preg_match("/^[a-zA-Z0-9_]{1,20}$/", $_POST["username"]) == 0)
+  else if(preg_match("/^[a-zA-Z0-9_]{1,20}$/", $_POST["username"]) == 0)
   {
     echo("Usernames must have a max of 20 characters and only contain letters, numbers, and underscores.");
   }
