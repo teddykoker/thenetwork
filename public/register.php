@@ -27,7 +27,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "POST")
   }
   else if($_POST["password"] == "")
   {
-    echo("Please enter a password.";
+    echo("Please enter a password.");
   }
   else if($_POST["confirm"] != $_POST["password"])
   {
