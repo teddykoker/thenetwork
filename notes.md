@@ -1,13 +1,13 @@
 #Notes
 
 ##TODO:
- - ~~server~~ and ssl
+ - ~~server~~ and ~~ssl~~
  - ~~fix new lines in posts~~
  - ~~error check emails~~
  - ~~different encoding on authentication~~
  - ~~pagers at bottom of posts~~
  - ~~provide posts based on followed topics~~
- - sort topics on followers
+ - ~~sort topics on followers~~
  - upload links
  - upload pictures
 
