@@ -35,6 +35,7 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
+            <li><a href="about">About</a></li>
           <?php if (!empty($_SESSION["id"])): ?>
             <li><a href="topics.php">Topics</a></li>
             <li><a href="logout.php">Log Out</a></li>
