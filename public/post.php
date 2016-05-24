@@ -3,7 +3,7 @@
 // configuration
 require("../includes/config.php");
 
-if (isset($_POST["text"]) && !empty($_POST["topic"]))
+if (isset($_POST["text"]) && !(trim($_POST["text"]) == "") && !empty($_POST["topic"]))
 {
   $result = Lib::query("INSERT INTO posts (text, user_id, topic_id) VALUES(?, ?, ?)", $_POST["text"], $_SESSION["id"], $_POST["topic"]);
 
@@ -20,7 +20,7 @@ if (isset($_POST["text"]) && !empty($_POST["topic"]))
 }
 else
 {
-  redirect("/");
+  alert("Please put content in your post.", "danger");
 }
 
 ?>
